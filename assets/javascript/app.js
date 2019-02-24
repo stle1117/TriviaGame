@@ -40,6 +40,7 @@
           var totalTimesUp;
           var number = 5;
           var intervalId;
+          var rightAnswers = 0;
 
 
     //START THE GAME
@@ -75,6 +76,12 @@
             $("#answerThree").text(questions.qOne.answer[2]);
             $("#answerFour").text(questions.qOne.answer[3]);
       
+            $("#button1").on("click", correct1);
+
+            function correct1() {
+                alert("You guessed the correct answer!")
+                rightAnswers++;
+            }
       
             //  Once number hits zero...
             if (number === 0) {
@@ -124,7 +131,13 @@
                 $("#answerThree").text(questions.qTwo.answer[2]);
                 $("#answerFour").text(questions.qTwo.answer[3]);
           
-          
+                $("#button2").on("click", correct2);
+                
+                function correct2() {
+                    alert("You guessed the correct answer!")
+                    rightAnswers++;
+                }
+
                 //  Once number hits zero...
                 if (number === 0) {
           
@@ -175,6 +188,13 @@
             $("#answerThree").text(questions.qThree.answer[2]);
             $("#answerFour").text(questions.qThree.answer[3]);
       
+
+            $("#button3").on("click", correct3);
+                
+            function correct3() {
+                alert("You guessed the correct answer!")
+                rightAnswers++;
+            }
       
             //  Once number hits zero...
             if (number === 0) {
@@ -227,7 +247,14 @@
         $("#answerThree").text(questions.qFour.answer[2]);
         $("#answerFour").text(questions.qFour.answer[3]);
   
-  
+        $("#button4").on("click", correct4);
+                
+        function correct4() {
+            alert("You guessed the correct answer!")
+            rightAnswers++;
+        }
+
+
         //  Once number hits zero...
         if (number === 0) {
   
@@ -278,6 +305,12 @@ function runNextQuestionFive() {
     $("#answerThree").text(questions.qFive.answer[2]);
     $("#answerFour").text(questions.qFive.answer[3]);
 
+    $("#button1").on("click", correct1);
+                
+    function correct1() {
+        alert("You guessed the correct answer!")
+        rightAnswers++;
+    }
 
     //  Once number hits zero...
     if (number === 0) {
@@ -330,6 +363,13 @@ function runNextQuestionSix() {
     $("#answerFour").text(questions.qSix.answer[3]);
 
 
+    $("#button2").on("click", correct2);
+                
+    function correct2() {
+        alert("You guessed the correct answer!")
+        rightAnswers++;
+    }
+
     //  Once number hits zero...
     if (number === 0) {
 
@@ -381,13 +421,19 @@ function runNextQuestionSeven() {
     $("#answerThree").text(questions.qSeven.answer[2]);
     $("#answerFour").text(questions.qSeven.answer[3]);
 
+    $("#button3").on("click", correct3);
+                
+    function correct3() {
+        alert("You guessed the correct answer!")
+        rightAnswers++;
+    }
 
     //  Once number hits zero...
     if (number === 0) {
 
       //  ...run the stop function.
       stop();
-
+        showScore();
       //  Alert the user that time is up.
 
     }
@@ -401,8 +447,12 @@ function runNextQuestionSeven() {
     clearInterval(intervalId);
     number = 5;
 
-
     }
+
+    function showScore() {
+        $(".score").html("<h1>You guessed correctly " + rightAnswers + " times!</h1>") 
+    }
+
 }
 }
             startGame();
