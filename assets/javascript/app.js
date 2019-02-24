@@ -130,6 +130,7 @@
           
                   //  ...run the stop function.
                   stop();
+                  runNextQuestionThree();
         
                   //  Alert the user that time is up.
     
@@ -142,12 +143,268 @@
                 //  We just pass the name of the interval
                 //  to the clearInterval function.
                 clearInterval(intervalId);
-    
+                number = 5;
     
     
                 }
             }
         }
+
+        var number = 5;
+
+        function runNextQuestionThree() {
+                clearInterval(intervalId);
+                intervalId = setInterval(decrement, 1000);
+              
+      
+          //  The decrement function.
+          function decrement() {
+      
+            //  Decrease number by one.
+            number--;
+          
+            //  Show the number in the #timer tag.
+            $(".timer").html("<h3>Time Left To Answer: " + number + "</h3>");
+
+            //  Show the first question in the #questionText tag
+            $("#questionText").text(questions.qThree.question);
+
+            //Show first set of answers
+            $("#answerOne").text(questions.qThree.answer[0]);
+            $("#answerTwo").text(questions.qThree.answer[1]);
+            $("#answerThree").text(questions.qThree.answer[2]);
+            $("#answerFour").text(questions.qThree.answer[3]);
+      
+      
+            //  Once number hits zero...
+            if (number === 0) {
+      
+              //  ...run the stop function.
+              stop();
+              runNextQuestionFour();
+    
+              //  Alert the user that time is up.
+
+            }
+          
+        
+          function stop() {
+
+            //  Clears our intervalId
+            //  We just pass the name of the interval
+            //  to the clearInterval function.
+            clearInterval(intervalId);
+            number = 5;
+
+
+            }
+        }
+    }
+
+
+    var number = 5;
+
+    function runNextQuestionFour() {
+            clearInterval(intervalId);
+            intervalId = setInterval(decrement, 1000);
+          
+  
+      //  The decrement function.
+      function decrement() {
+  
+        //  Decrease number by one.
+        number--;
+      
+        //  Show the number in the #timer tag.
+        $(".timer").html("<h3>Time Left To Answer: " + number + "</h3>");
+
+        //  Show the first question in the #questionText tag
+        $("#questionText").text(questions.qFour.question);
+
+        //Show first set of answers
+        $("#answerOne").text(questions.qFour.answer[0]);
+        $("#answerTwo").text(questions.qFour.answer[1]);
+        $("#answerThree").text(questions.qFour.answer[2]);
+        $("#answerFour").text(questions.qFour.answer[3]);
+  
+  
+        //  Once number hits zero...
+        if (number === 0) {
+  
+          //  ...run the stop function.
+          stop();
+          runNextQuestionFive();
+
+          //  Alert the user that time is up.
+
+        }
+      
+    
+      function stop() {
+
+        //  Clears our intervalId
+        //  We just pass the name of the interval
+        //  to the clearInterval function.
+        clearInterval(intervalId);
+        number = 5;
+
+
+        }
+    }
+}
+
+var number = 5;
+
+function runNextQuestionFive() {
+        clearInterval(intervalId);
+        intervalId = setInterval(decrement, 1000);
+      
+
+  //  The decrement function.
+  function decrement() {
+
+    //  Decrease number by one.
+    number--;
+  
+    //  Show the number in the #timer tag.
+    $(".timer").html("<h3>Time Left To Answer: " + number + "</h3>");
+
+    //  Show the first question in the #questionText tag
+    $("#questionText").text(questions.qFive.question);
+
+    //Show first set of answers
+    $("#answerOne").text(questions.qFive.answer[0]);
+    $("#answerTwo").text(questions.qFive.answer[1]);
+    $("#answerThree").text(questions.qFive.answer[2]);
+    $("#answerFour").text(questions.qFive.answer[3]);
+
+
+    //  Once number hits zero...
+    if (number === 0) {
+
+      //  ...run the stop function.
+      stop();
+      runNextQuestionSix();
+
+      //  Alert the user that time is up.
+
+    }
+  
+
+  function stop() {
+
+    //  Clears our intervalId
+    //  We just pass the name of the interval
+    //  to the clearInterval function.
+    clearInterval(intervalId);
+    number = 5;
+
+
+    }
+}
+}
+
+var number = 5;
+
+function runNextQuestionSix() {
+        clearInterval(intervalId);
+        intervalId = setInterval(decrement, 1000);
+      
+
+  //  The decrement function.
+  function decrement() {
+
+    //  Decrease number by one.
+    number--;
+  
+    //  Show the number in the #timer tag.
+    $(".timer").html("<h3>Time Left To Answer: " + number + "</h3>");
+
+    //  Show the first question in the #questionText tag
+    $("#questionText").text(questions.qSix.question);
+
+    //Show first set of answers
+    $("#answerOne").text(questions.qSix.answer[0]);
+    $("#answerTwo").text(questions.qSix.answer[1]);
+    $("#answerThree").text(questions.qSix.answer[2]);
+    $("#answerFour").text(questions.qSix.answer[3]);
+
+
+    //  Once number hits zero...
+    if (number === 0) {
+
+      //  ...run the stop function.
+      stop();
+      runNextQuestionSeven();
+
+      //  Alert the user that time is up.
+
+    }
+  
+
+  function stop() {
+
+    //  Clears our intervalId
+    //  We just pass the name of the interval
+    //  to the clearInterval function.
+    clearInterval(intervalId);
+    number = 5;
+
+
+    }
+}
+}
+
+
+var number = 5;
+
+function runNextQuestionSeven() {
+        clearInterval(intervalId);
+        intervalId = setInterval(decrement, 1000);
+      
+
+  //  The decrement function.
+  function decrement() {
+
+    //  Decrease number by one.
+    number--;
+  
+    //  Show the number in the #timer tag.
+    $(".timer").html("<h3>Time Left To Answer: " + number + "</h3>");
+
+    //  Show the first question in the #questionText tag
+    $("#questionText").text(questions.qSeven.question);
+
+    //Show first set of answers
+    $("#answerOne").text(questions.qSeven.answer[0]);
+    $("#answerTwo").text(questions.qSeven.answer[1]);
+    $("#answerThree").text(questions.qSeven.answer[2]);
+    $("#answerFour").text(questions.qSeven.answer[3]);
+
+
+    //  Once number hits zero...
+    if (number === 0) {
+
+      //  ...run the stop function.
+      stop();
+
+      //  Alert the user that time is up.
+
+    }
+  
+
+  function stop() {
+
+    //  Clears our intervalId
+    //  We just pass the name of the interval
+    //  to the clearInterval function.
+    clearInterval(intervalId);
+    number = 5;
+
+
+    }
+}
+}
             startGame();
  
 
