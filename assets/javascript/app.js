@@ -49,7 +49,6 @@ window.onload = function() {
 var time = 15;
 var intervalId;
 var timerCount = 0;
-var total = (totalCorrect + totalWrong + totalUnanswered);
 var clockRunning = false;
 
 
@@ -91,13 +90,18 @@ function stop() {
     //  We just pass the name of the interval
     //  to the clearInterval function.
 clearInterval(intervalId);
+clockRunning = false;
 }
+
+
+
 
 function startTimer(){
     clearInterval(intervalId);
   
   $("#timer").html("<p>Seconds left to answer " + time + "</p>");
   intervalId = setInterval(decrement, 1000); 
+
 }
 
 
@@ -106,11 +110,12 @@ function decrement() {
       $("#timer").html("<p>Seconds left to answer " + time + "</p>");
       if(time === -1){
         stop();
-        index++
+        index++;
         
-        totalUnanswered++
+        totalUnanswered++;
 
-        timerCount++
+        timerCount++;
+        console.log(timerCount);
         
         $("#total-unanswered").html(totalUnanswered);
         time = 15;
@@ -122,6 +127,9 @@ function decrement() {
         function countTo() {
             if (total === 7) {
                 return false};
+        if (timerCount === 7) {
+            time = 0;
+        }
         }}
         countTo();
 
@@ -161,11 +169,12 @@ function displayNextQuestion(){
 function checkAnswer() {
 $(document).on("click", ".answer", function(){
     var value = $(this).text()
-    console.log(value);
     if (value === questions[index].correctAnswer){
         startTimer();
         alert("you are right!");
         totalCorrect++
+        timerCount++
+        console.log(timerCount);
         $("#total-correct").html(totalCorrect); 
         time = 16;
         index++;
@@ -175,6 +184,8 @@ $(document).on("click", ".answer", function(){
         startTimer();
         alert("you are wrong!");
         totalWrong++;
+        timerCount++;
+        console.log(timerCount);
         $("#total-wrong").html(totalWrong);    
         time = 16;
         index++;
@@ -186,12 +197,29 @@ $(document).on("click", ".answer", function(){
 }
 
 
+
+function endGame() {
+
+        stop();
+        time = 0;
+          $("#timer").html("<p>Seconds left to answer " + time + "</p>");
+            if (!clockRunning) {
+          intervalId = setInterval(decrement, 1000); 
+          clockRunning = false;
+            }
+        }
+ 
+
+        var timerCount = (totalCorrect + totalWrong + totalUnanswered);
+        if (timerCount === 7) {
+            endGame();
+        }
+
+
 startTimer();
 
 checkAnswer();
 
 displayNextQuestion();
-
-endGame();
 
 countTo();

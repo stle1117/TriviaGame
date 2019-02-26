@@ -20,8 +20,9 @@
             <div class="col-md-12">
                 <div class="jumbotron" id="main">
                     <div class="gameTitle">
-                        <h1 class="display-4" >Sports Trivia Game</h1>
+                        <h1 class="display-4" id="title">Sports Trivia Game</h1>
                     </div>
+                    <div><img src="assets/images/target.jpg" id="target" style="height: 110px; width: 200px;"></div>
                     <div class="startButton">
                         <button type="button" class="btn btn-secondary btn-lg btn-block" id="start">Click here to START GAME!</button>
                     </div>
@@ -32,13 +33,17 @@
                         <p class="lead" id="question"></p></div>
                     <div id="choices"></div>
 
+                    <div>
+                        <img src="assets/images/background-bonfire.jpg" id="fire" style="height: 150px; width: 500px;">
+                    </div>
+
                     <div id="results">Correct: <span id="total-correct"></span>
                                     
                                         Wrong: <span id="total-wrong"></span>
                                    
                                         Total Unanswered: <span id="total-unanswered"></span></div>
 
-                    <div id="resetButton"><input class="btn btn-primary" id="reset" type="reset" value="Reset"></div>
+                    <div id="resetButton"><input class="btn btn-warning" id="reset" type="reset" value="Reset"></div>
                 </div>
             </div>
         </div>
