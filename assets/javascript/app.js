@@ -39,19 +39,20 @@ var questions = [
   }
 ];
 
+//set click handlers for when the page loads
 
 window.onload = function() {
     $("#reset").on("click", reset);
     $("#start").on("click", startTimer);
   };
 
-
+//declare variables
 var time = 15;
 var intervalId;
 var timerCount = 0;
 var clockRunning = false;
 
-
+//declare function for when the game resets
 function displayQuestionsAgain(){
 
     index = 0
@@ -67,7 +68,7 @@ function displayQuestionsAgain(){
     }
   };
 
-
+//declare function for resetting the game
 function reset() {
     time = 15;
     totalCorrect = 0;
@@ -83,7 +84,7 @@ function reset() {
 
 }
 
-
+//declare a function for stopping the timer
 function stop() {
 
     //  Clears our intervalId
@@ -94,8 +95,7 @@ clockRunning = false;
 }
 
 
-
-
+//declare a function for starting the timer
 function startTimer(){
     clearInterval(intervalId);
   
@@ -104,7 +104,7 @@ function startTimer(){
 
 }
 
-
+//set a function for decrementing the count on the timer
 function decrement() {
       time--;
       $("#timer").html("<p>Seconds left to answer " + time + "</p>");
@@ -115,7 +115,6 @@ function decrement() {
         totalUnanswered++;
 
         timerCount++;
-        console.log(timerCount);
         
         $("#total-unanswered").html(totalUnanswered);
         time = 15;
@@ -137,22 +136,25 @@ function decrement() {
 
 
 
-
+//declare variables
 var totalCorrect = 0
 var totalWrong = 0
 var totalUnanswered = 0
 
+//show counts on the screen
 $("#total-correct").html(totalCorrect);
 $("#total-wrong").html(totalWrong);
 $("#total-unanswered").html(totalUnanswered);
 
+//declare more variables
 var playerAnswer;
 var totalTimesUp;
 var rightAnswers = 0;
 
-
+//set the index to zero
 var index = 0
 
+//declare a function for displaying the questions and iterate through the array of objects with a loop
 function displayNextQuestion(){
   
   $("#question").html(questions[index].question);
@@ -166,6 +168,7 @@ function displayNextQuestion(){
   }
 }
 
+//declare a function to check the answers
 function checkAnswer() {
 $(document).on("click", ".answer", function(){
     var value = $(this).text()
@@ -174,7 +177,6 @@ $(document).on("click", ".answer", function(){
         alert("you are right!");
         totalCorrect++
         timerCount++
-        console.log(timerCount);
         $("#total-correct").html(totalCorrect); 
         time = 16;
         index++;
@@ -185,7 +187,6 @@ $(document).on("click", ".answer", function(){
         alert("you are wrong!");
         totalWrong++;
         timerCount++;
-        console.log(timerCount);
         $("#total-wrong").html(totalWrong);    
         time = 16;
         index++;
@@ -197,7 +198,7 @@ $(document).on("click", ".answer", function(){
 }
 
 
-
+//declare a function to end the game and invoke it under certain conditions
 function endGame() {
 
         stop();
@@ -216,6 +217,7 @@ function endGame() {
         }
 
 
+//invoke functions
 startTimer();
 
 checkAnswer();
