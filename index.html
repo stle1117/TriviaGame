@@ -26,30 +26,17 @@
                         <button type="button" class="btn btn-secondary btn-lg btn-block" id="start">Click here to START GAME!</button>
                     </div>
                     <div class="mainTimer">
-                        <p class="timer"></p>
+                        <p id="timer"></p>
                     </div>
-                    <div class="questions">
-                        <p class="lead" id="questionText"></p>
-                    </div>
-                    <div class="answerOptions">
-                        <hr class="my-4">
-                        <p id="answerOne"></p>
-                        <p id="answerTwo"></p>
-                        <p id="answerThree"></p>
-                        <p id="answerFour"></p>
-                    </div>
-                        <div class="btn-group-vertical btn-group-toggle" data-toggle="buttons">
-                                <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
-                                        <div class="btn-group mr-2" role="group" aria-label="First group">
-                                          <button type="button" class="btn btn-secondary" id="button1">1</button>
-                                          <button type="button" class="btn btn-secondary" id="button2">2</button>
-                                          <button type="button" class="btn btn-secondary" id="button3">3</button>
-                                          <button type="button" class="btn btn-secondary" id="button4">4</button>
-                                        </div>
-                    <div class="resetButton">
-                        <input class="btn btn-secondary" type="reset" value="Reset">
-                    </div>
-                    <div class="score"></div>
+                    <div id="questions">
+                        <p class="lead" id="question"></p></div>
+                    <div id="choices"></div>
+
+                    <div id="results">Correct: <span id="total-correct"></span>
+                                    
+                                        Wrong: <span id="total-wrong"></span>
+                                   
+                                        Total Unanswered: <span id="total-unanswered"></span></div>
                 </div>
             </div>
         </div>
