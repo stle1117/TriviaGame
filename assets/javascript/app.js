@@ -1,60 +1,64 @@
 var questions = [
   {
-      question: "astronomy question 1",
-      choices: ["answer 1", "answer 2", "answer 3", "answer 4"],
-      correctAnswer: "answer 1",
+      question: "What football team was Odell Beckham Jr. playing against when he made his famous one handed touchdown catch?",
+      choices: ["Packers", "Cowboys", "Giants", "Steelers"],
+      correctAnswer: "Cowboys",
   },
   {
-      question: "astronomy 2",
-      choices: ["dfasd", "sadf", "answesdfasr 3", "answeasdfadsr 4"]},
-          
+      question: "What college did Todd Girley II go to?",
+      choices: ["Texas A&M", "UNC", "Florida", "Georgia"],
+      correctAnswer: "Georgia",
+  },
   {
-      question: "astronomy question 3",
-      choices: ["answer 1", "answer 2", "answer 3", "answer 4"]},
-
+      question: "Who recently won the Mexico Golf Tournament?",
+      choices: ["Dustin Johnson", "Phil Michelson", "Matt Kuchar", "Tiger Woods"],
+      correctAnswer: "Dustin Johnson",
+  },    
   {
-      question: "astronomy question 4",
-      choices: ["answer 1", "answer 2", "answer 3", "answer 4"]},
-  
+      question: "Which Chicago Bears football player was known as the FRIDGE in the 80s?",
+      choices: ["Walter Payton", "Jerry Rice", "Ronnie Lott", "William Perry"],
+      correctAnswer: "William Perry",
+  },    
   {
-      question: "astronomy question 5",
-      choices: ["answer 1", "answer 2", "answer 3", "answer 4"]},
-          
+      question: "Who currently plays striker for Tottenham Hotspur soccer?",
+      choices: ["Lionel Messi", "Paul Pogba", "Harry Kane", "David Beckham"],
+      correctAnswer: "Harry Kane",
+  },
   {
-      question: "astronomy question 6",
-      choices: ["answer 1", "answer 2", "answer 3", "answer 4"]},
-
+      question: "Who is the all-time three-point shooter for the Chicago Bulls?",
+      choices: ["Michael Jordan", "Dennis Rodman", "Horace Grant", "Scottie Pippen"],
+      correctAnswer: "Scottie Pippen",
+  },    
   {
-      question: "astronomy question 7",
-      choices: ["answer 1", "answer 2", "answer 3", "answer 4"]}
+      question: "Who is the best pitcher of all time?",
+      choices: ["Tom Glavin", "Nolan Ryan", "Clayton Kershaw", "Justin Verlander"],
+      correctAnswer: "Nolan Ryan",
+  }
 ];
 
 
 function startTimer(){
-  var time = 5
-  $('#timer').html(time)
+  var time = 15
+  $('#timer').html("<p>Seconds left to answer " + time + "</p>")
   var questionTimer = setInterval(function(){
       time--
-      $('#timer').html(time)
+      $('#timer').html("<p>Seconds left to answer " + time + "</p>")
       if(time === 0){
           clearInterval(questionTimer)
           index ++
-          console.log(index);
           
           totalUnanswered ++
-          console.log('happens');
           
           $('#total-unanswered').html(totalUnanswered)
           
-          time = 5
+          time = 15
           displayNextQuestion()
           startTimer()
       }
   }, 1000)
 }
 
-startTimer()
-
+startTimer();
 
 
 
@@ -90,8 +94,7 @@ function displayNextQuestion(){
   }
 }
 
-displayNextQuestion()
-
+displayNextQuestion();
 
 
 $(document).on('click', '.answer', function(){
@@ -101,14 +104,12 @@ $(document).on('click', '.answer', function(){
         alert('you are right!')
         totalCorrect ++
         $('#total-correct').html(totalCorrect)
+        startTimer();
     } else {
         alert('you are wrong!')
         totalWrong ++
         $('#total-wrong').html(totalWrong)
+        startTimer();
     }
     index ++
-    displayNextQuestion()
 })
-
-
-console.log(questions[index]);
